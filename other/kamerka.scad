@@ -70,7 +70,7 @@ module leg() {
 
 module clipper() {
 	difference() {
-		linear_extrude(5.2) {
+		linear_extrude(10) {
 			top();
 			mirror([1, 0, 0]) top();
 		}
@@ -83,4 +83,8 @@ module clipper() {
 	}
 }
 
-clipper();
+curvature = 100;
+difference() {
+	translate([0, -20, -5]) rotate([5, 0, 0]) clipper();
+	translate([0, 0, curvature]) sphere(curvature, $fn=200);
+}
