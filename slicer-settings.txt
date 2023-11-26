@@ -1,0 +1,6 @@
+solid layers top 4 bottom 3
+ensure vertical shell thickness
+
+ender5pro:
+first layer speed 20 %
+ignore printer settings in gcode
