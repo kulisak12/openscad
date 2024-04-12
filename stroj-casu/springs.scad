@@ -17,7 +17,7 @@
 
 help(); 
 
-use <Naca_sweep.scad> // for explanation refer to https://www.thingiverse.com/thing:900137
+use <naca-sweep.scad> // for explanation refer to https://www.thingiverse.com/thing:900137
 
 module help() help_spring();  
 module help_spring()

@@ -45,7 +45,6 @@ module hollow_cylinder(dia, height, thickness) {
 }
 
 module bottle() {
-	// import("bottlecap.stl");
 	color("Aqua", alpha=0.3) translate([0, 0, 124]) rotate([180, 0, 0]) scale(180) import("bottle.stl");
 }
 
