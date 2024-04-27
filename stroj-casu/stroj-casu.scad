@@ -45,13 +45,13 @@ module hollow_cylinder(dia, height, thickness) {
 }
 
 module bottle() {
-	color("Aqua", alpha=0.3) translate([0, 0, 124]) rotate([180, 0, 0]) scale(180) import("bottle.stl");
+	color("Aqua", alpha=0.3) scale(40) translate([0, 10.8, -5.45]) import("bottle.stl");
 }
 
 module bottle_connector() {
 	color("DarkOrange") hollow_cylinder(10, 150, 1);
-	translate([5, 0, 40]) rotate([0, 90, 0]) bottle();
-	translate([-5, 0, 40]) rotate([0, -90, 0]) bottle();
+	translate([5,0,35]) rotate([0, -90, 0]) bottle();
+	translate([-5,0,35]) rotate([0, 90, 0]) bottle();
 }
 
 // connector
@@ -66,7 +66,7 @@ translate([50, 0, 0]) axis();
 translate([400, 0, 0]) axis();
 color("SaddleBrown") translate([0, 0, 45]) string(42);
 
-color("Silver") translate([400, 0, 75]) rotate([0, 0, -40]) translate([0, -28, 0]) rotate([90, 0, 0]) import("crank.stl");
+color("Silver") translate([400, 0, 75]) rotate([0, 0, 40]) translate([12, -55, 0]) import("crank.stl");
 
 color("BurlyWood") translate([50, 0, 200]) hollow_cylinder(50, 100, 1);
 translate([50, 0, 205]) coil();

@@ -1,0 +1,2 @@
+bottle.stl https://cults3d.com/en/3d-model/various/1-35-water-plastic-bottles
+crank.stl vymodeloval JQ
