@@ -54,36 +54,36 @@ second_hook=1; // [0, 1]
 /* [MAIN HOOK SIZE] */
 
 // Intern diameter of hook's main U shape
-hook_size=35; // [0.1:250]
+hook_size=25; // [0.1:250]
 
 // Hook's "thickness" = object's width = print's height
-thickness=25; // [0.1:250]
+thickness=10; // [0.1:250]
 
 
 
 /* [SECOND HOOK] */
 
 // Lenght of second hook. Good values are around "Hook Size" x 0.75
-second_hook_lenght=30; // [0.1:200]
+second_hook_lenght=20; // [0.1:200]
 
 // Angle of second hook. Best is between 45° and 65°.
-second_hook_angle=55; // [0:90]
+second_hook_angle=70; // [0:90]
 
 
 
 /* [SPACERS] */
 
 // Space between main hook and bottom screw
-spacer_1=20; // [0:200]
+spacer_1=0; // [0:200]
 
 // Space between bottom screw and secondary hook
 spacer_2=10; // [0:200]
 
 // Space between second hook and top screw
-spacer_3=10; // [0:200]
+spacer_3=0; // [0:200]
 
 // Space between top screw and hook's rounded top
-spacer_4=10; // [0:200]
+spacer_4=0; // [0:200]
 
 
 
@@ -125,7 +125,7 @@ safety_screw=0; // [1, 0]
 extremity=1; // [1, 0]
 
 // Choose to have screw-holes (1) or not (0)
-screw_holes=1; // [1, 0]
+screw_holes=0; // [1, 0]
 
 // Choose to have the hook's rounded "top" (1) or not (0)
 rounded_top=1; // [1, 0]
@@ -161,7 +161,7 @@ Console will also display warning messages if some values are illogic.
 /* [HIDDEN] */
 // shortcuts
 stiffness=hook_size/4;
-big_r=hook_size/5;
+big_r=hook_size/5*0.8;
 small_r=stiffness/2;
 height_bottom=hook_size;
 width_global=hook_size+stiffness*2;
@@ -178,7 +178,7 @@ min_height3_hg=min_height2_hg+spacer_3/2+spacer_2/2;
 min_height4=min_height3+spacer_4/2+spacer_3/2+screw_house;
 min_height4_hg=min_height3_hg+spacer_3/2+spacer_4/2;
 space_global=spacer_1+spacer_2+spacer_3+spacer_4;
-$fn=150;
+$fn=50;
 
 // remove specific colors for each module
 color ("Gold")
@@ -296,14 +296,14 @@ module uhook ()
         {
             translate ([-width_global/2,min_height2+spacer_2/2,-thickness/2])
             arm ();
-            translate ([-half_width,min_height3+hook_size,0])
-            addH3 ();
-            translate ([-half_width,min_height3+hook_size+spacer_3/2+screw_house/2,0])
-            screw ();
-            translate ([-half_width,min_height4+hook_size,0])
-            addH4 ();
-            translate ([-half_width,min_height4+hook_size+spacer_4/2+stiffness/2,0])
-            head ();
+            // translate ([-half_width,min_height3+hook_size,0])
+            // addH3 ();
+            // translate ([-half_width,min_height3+hook_size+spacer_3/2+screw_house/2,0])
+            // screw ();
+            // translate ([-half_width,min_height4+hook_size,0])
+            // addH4 ();
+            // translate ([-half_width,min_height4+hook_size+spacer_4/2+stiffness/2,0])
+            // head ();
             //height calculation
             height_global=hook_size*2+stiffness*3+screw_house*2+space_global;
             echo (TOTAL_SIZE_ON_Y_AXIS=height_global);
@@ -373,8 +373,8 @@ module bottom ()
         {
             cube ([width_global,height_bottom+0.1,thickness], center=true);
 
-            translate ([-stiffness,height_bottom/2,0])
-            cylinder(r=hook_size/2+stiffness*2, h=thickness+0.1, center=true);
+            translate ([-0.5*stiffness,height_bottom/2,0])
+            cylinder(r=hook_size/2+stiffness*1.5, h=thickness+0.1, center=true);
 
         }
 
@@ -521,7 +521,7 @@ module arm ()
     color ("Orange")
     union ()
     {
-        cube ([stiffness, hook_size, thickness]);
+        // cube ([stiffness, hook_size, thickness]);
 
         translate ([0,stiffness,0])
         union ()
