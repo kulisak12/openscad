@@ -1,14 +1,18 @@
+use <../lib/BaNG_Metric.scad>
 $fn = 50;
 
-hole_r = 4.7 / 2; // 5 mm screw
+screw = 5;
+screw_r = screw / 2;
 thickness = 0.8;
-length = 7;
-eps = 0.01;
+height = 7;
+adjustment = 0.2;
 
+
+intersection() {
+    nut(screw, height_=height, tolerance="Loose", thread_adjustment=adjustment);
+    cylinder(h = height, r = screw_r + thickness);
+}
 difference() {
-    union() {
-        scale([1,1,0.5]) sphere(hole_r + thickness);
-        cylinder(h = length, r = hole_r + thickness);
-    }
-    cylinder(h = length + eps, r = hole_r);
+    scale([1,1,0.5]) sphere(screw_r + thickness);
+    translate([-10, -10, 0]) cube(20);
 }
