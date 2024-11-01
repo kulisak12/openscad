@@ -1,3 +1,4 @@
+include <../lib/subtract.scad>
 $fn = 50;
 
 inset = 2.4;
@@ -36,22 +37,6 @@ module key() {
     hull() {
         translate([ width / 2 - r_side, 0 ]) circle(r_side);
         translate([ -(width / 2 - r_side), 0 ]) circle(r_side);
-    }
-}
-
-module subtr_2d(radius) {
-    render() difference() {
-        children();
-        minkowski() {
-            difference() {
-                minkowski() {
-                    children();
-                    square(1, center = true);
-                }
-                children();
-            }
-            circle(radius);
-        }
     }
 }
 
